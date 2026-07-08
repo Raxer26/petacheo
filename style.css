@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #d4af37;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #d4af37;
+}
+
+.hero {
+    height: 100vh;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: #d4af37;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #d4af37;
+    color: #1a1a2e;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    background: #f0c850;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.project {
+    padding: 5rem 0;
+    background: #f4f4f4;
+}
+
+.project h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #1a1a2e;
+}
+
+.project-content {
+    background: #fff;
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.project-text h3 {
+    color: #0f3460;
+    margin: 1.5rem 0 1rem;
+    font-size: 1.4rem;
+}
+
+.project-text h3:first-child {
+    margin-top: 0;
+}
+
+.project-text p {
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.team {
+    padding: 5rem 0;
+    background: #1a1a2e;
+    color: #fff;
+}
+
+.team h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #d4af37;
+}
+
+.team-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+}
+
+.team-member {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+}
+
+.member-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.team-member h4 {
+    color: #d4af37;
+}
+
+footer {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        gap: 1rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+}
