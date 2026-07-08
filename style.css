@@ -1108,6 +1108,106 @@ body {
     font-style: italic;
 }
 
+.incarnazione-digitale {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.incarnazione-digitale h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.incarnazione-digitale .section-subtitle {
+    color: var(--text-dim);
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.incarnazione-grid {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.incarnazione-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+}
+
+.incarnazione-card {
+    background: linear-gradient(145deg, rgba(20, 20, 30, 0.8), rgba(10, 10, 15, 0.9));
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: all 0.4s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.incarnazione-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
+}
+
+.incarnazione-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.incarnazione-card h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.incarnazione-card p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.incarnazione-card.cyberworld {
+    border-top: 3px solid #4a9eff;
+}
+
+.incarnazione-card.ai {
+    border-top: 3px solid #ff6b6b;
+}
+
+.incarnazione-card.iot {
+    border-top: 3px solid #4ecdc4;
+}
+
+.cyberworld-screenshot {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 1rem;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.iot-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 1rem;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
 @media (max-width: 768px) {
     .nav-links {
         display: none;
