@@ -124,50 +124,34 @@
             <div class="movements-grid">
                 <div class="movement-card">
                     <div class="movement-icon">🏃</div>
-                    <h3>La Corsa</h3>
-                    <p>Petacheo corre veloce come Achille "pie' veloce" inseguendo i nemici</p>
+                    <h3>L'Inseguimento</h3>
+                    <p>Petacheo corre verso Ettore e gli gira intorno, simulando il leggendario inseguimento sotto le mura di Troia</p>
                     <div class="movement-code">
-                        <code>run(speed: "max")</code>
+                        <code>chase(target: "Ettore", circle: true)</code>
                     </div>
                 </div>
                 <div class="movement-card">
                     <div class="movement-icon">⚔️</div>
-                    <h3>Posa di Battaglia</h3>
-                    <p>Posizione eretta, pronto a combattere come sulla piana di Troia</p>
+                    <h3>Il Colpo Mortale</h3>
+                    <p>Con una spada stampata in 3D, Petacheo colpisce Ettore con precisione letale</p>
                     <div class="movement-code">
-                        <code>battleStance()</code>
+                        <code>strike(weapon: "spada3D", target: "Ettore")</code>
                     </div>
                 </div>
                 <div class="movement-card">
-                    <div class="movement-icon">🎯</div>
-                    <h3>L'Attacco</h3>
-                    <p>Movimento rapido e preciso, la lancia di Achille colpisce il bersaglio</p>
+                    <div class="movement-icon">🗡️</div>
+                    <h3>Il Duello con Paride</h3>
+                    <p>Petacheo combatte contro Paride, il principesco arciere troiano, in un epico scontro</p>
                     <div class="movement-code">
-                        <code>attack(target: "Ettore")</code>
+                        <code>duel(opponent: "Paride")</code>
                     </div>
                 </div>
                 <div class="movement-card">
-                    <div class="movement-icon">🛡️</div>
-                    <h3>La Difesa</h3>
-                    <p>Postura protettiva, scudo alzato per parare i colpi nemici</p>
+                    <div class="movement-icon">💀</div>
+                    <h3>Il Tallone di Achille</h3>
+                    <p>Paride scocca la freccia mortale: toccando il sensore sul tallone, Petacheo cade... il mito si compie</p>
                     <div class="movement-code">
-                        <code>defend(shield: "up")</code>
-                    </div>
-                </div>
-                <div class="movement-card">
-                    <div class="movement-icon">😤</div>
-                    <h3>L'Ira</h3>
-                    <p>Movimenti aggressivi che mostrano la furia leggendaria dell'eroe</p>
-                    <div class="movement-code">
-                        <code>rage(level: "max")</code>
-                    </div>
-                </div>
-                <div class="movement-card">
-                    <div class="movement-icon">🏆</div>
-                    <h3>Il Trionfo</h3>
-                    <p>Pose di vittoria dopo la battaglia, gloria immortale</p>
-                    <div class="movement-code">
-                        <code>triumph(pose: "victorious")</code>
+                        <code>playDead(trigger: "sensoreTallone")</code>
                     </div>
                 </div>
             </div>
