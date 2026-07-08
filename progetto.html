@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Progetto | Petacheo</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">Ω</span>
+                <span class="logo-text">PETACHEO</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="storia.html">La Leggenda</a></li>
+                <li><a href="progetto.html" class="active">Il Progetto</a></li>
+                <li><a href="galleria.html">Galleria</a></li>
+                <li><a href="chi-siamo.html">Chi Siamo</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero progetto-hero">
+        <div class="hero-overlay"></div>
+        <div class="page-hero-content">
+            <span class="page-badge">Innovazione</span>
+            <h1>Il Progetto Petacheo</h1>
+            <p class="hero-subtitle">Dove tecnologia e mitologia si incontrano</p>
+        </div>
+    </section>
+
+    <section class="project-overview">
+        <div class="container">
+            <div class="overview-content">
+                <div class="overview-text">
+                    <h2>La Nostra Visione</h2>
+                    <p>Petacheo nasce dall'idea di unire due mondi apparentemente distanti: l'antica mitologia greca e la moderna robotica. Abbiamo scelto di ispirarci ad Achille, il più grande eroe dell'Iliade, per creare un robot che non si limiti a muoversi, ma che racconti una storia attraverso i suoi gesti.</p>
+                    <div class="overview-stats">
+                        <div class="stat">
+                            <span class="stat-number">6</span>
+                            <span class="stat-label">Membri del Team</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">17</span>
+                            <span class="stat-label">Anni di Età</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">Giorni di Lavoro</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="overview-image">
+                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600" alt="Robot">
+                    <div class="image-badge">Petoi Robot</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Tecnologia</span>
+                <h2>Come Funziona</h2>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-header">
+                        <div class="tech-icon">🤖</div>
+                        <h3>Hardware</h3>
+                    </div>
+                    <ul class="tech-list">
+                        <li>Robot quadrupede Petoi Bittle</li>
+                        <li>Servo motori ad alta precisione</li>
+                        <li>Scheda di controllo programmabile</li>
+                        <li>Sensori di movimento</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-header">
+                        <div class="tech-icon">💻</div>
+                        <h3>Software</h3>
+                    </div>
+                    <ul class="tech-list">
+                        <li>Programmazione in Arduino/C++</li>
+                        <li>Libreria Petoi per il controllo</li>
+                        <li>Movimenti coreografati su misura</li>
+                        <li>Sequenze ispirate all'Iliade</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-header">
+                        <div class="tech-icon">🎨</div>
+                        <h3>Design</h3>
+                    </div>
+                    <ul class="tech-list">
+                        <li>Estetica greca personalizzata</li>
+                        <li>Colori: oro, bronzo e rosso</li>
+                        <li>Dettagli che richiamano l'armatura</li>
+                        <li>Sito web con tema mitologico</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="movements-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Coreografia</span>
+                <h2>I Movimenti di Achille</h2>
+                <p class="section-subtitle">Ogni gesto racconta una storia</p>
+            </div>
+            <div class="movements-grid">
+                <div class="movement-card">
+                    <div class="movement-icon">🏃</div>
+                    <h3>La Corsa</h3>
+                    <p>Petacheo corre veloce come Achille "pie' veloce" inseguendo i nemici</p>
+                    <div class="movement-code">
+                        <code>run(speed: "max")</code>
+                    </div>
+                </div>
+                <div class="movement-card">
+                    <div class="movement-icon">⚔️</div>
+                    <h3>Posa di Battaglia</h3>
+                    <p>Posizione eretta, pronto a combattere come sulla piana di Troia</p>
+                    <div class="movement-code">
+                        <code>battleStance()</code>
+                    </div>
+                </div>
+                <div class="movement-card">
+                    <div class="movement-icon">🎯</div>
+                    <h3>L'Attacco</h3>
+                    <p>Movimento rapido e preciso, la lancia di Achille colpisce il bersaglio</p>
+                    <div class="movement-code">
+                        <code>attack(target: "Ettore")</code>
+                    </div>
+                </div>
+                <div class="movement-card">
+                    <div class="movement-icon">🛡️</div>
+                    <h3>La Difesa</h3>
+                    <p>Postura protettiva, scudo alzato per parare i colpi nemici</p>
+                    <div class="movement-code">
+                        <code>defend(shield: "up")</code>
+                    </div>
+                </div>
+                <div class="movement-card">
+                    <div class="movement-icon">😤</div>
+                    <h3>L'Ira</h3>
+                    <p>Movimenti aggressivi che mostrano la furia leggendaria dell'eroe</p>
+                    <div class="movement-code">
+                        <code>rage(level: "max")</code>
+                    </div>
+                </div>
+                <div class="movement-card">
+                    <div class="movement-icon">🏆</div>
+                    <h3>Il Trionfo</h3>
+                    <p>Pose di vittoria dopo la battaglia, gloria immortale</p>
+                    <div class="movement-code">
+                        <code>triumph(pose: "victorious")</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Sviluppo</span>
+                <h2>Il Processo Creativo</h2>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Ricerca</h3>
+                        <p>Abbiamo studiato i passi dell'Iliade che descrivono i movimenti e i gesti di Achille in battaglia</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Progettazione</h3>
+                        <p>Definizione delle sequenze di movimento e mappatura dei gesti eroici</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Programmazione</h3>
+                        <p>Scrittura del codice Arduino per controllare i servo motori del robot</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Testing</h3>
+                        <p>Prove e aggiustamenti per rendere i movimenti fluidi ed eroici</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">05</div>
+                    <div class="step-content">
+                        <h3>Presentazione</h3>
+                        <p>Demo finale e creazione del sito per documentare il progetto</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-bg">
+            <div class="greek-pattern"></div>
+        </div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">Ω</span>
+                        <span class="logo-text">PETACHEO</span>
+                    </div>
+                    <p>Un progetto della Summer School MAST 2k26</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-divider">
+                    <span class="divider-icon">⚔️</span>
+                </div>
+                <p>&copy; 2026 Petacheo Team. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

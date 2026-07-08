@@ -3,83 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Petacheo - MAST Summer School 2k26</title>
+    <title>Petacheo - L'Eroe di Bronzo | MAST Summer School 2k26</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Petacheo</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#progetto">Progetto</a></li>
-                <li><a href="#team">Team</a></li>
+    <div class="preloader" id="preloader">
+        <div class="loader-content">
+            <div class="greek-loader"></div>
+            <p class="loader-text">Per Aspera Ad Astra</p>
+        </div>
+    </div>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">Ω</span>
+                <span class="logo-text">PETACHEO</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="storia.html">La Leggenda</a></li>
+                <li><a href="progetto.html">Il Progetto</a></li>
+                <li><a href="galleria.html">Galleria</a></li>
+                <li><a href="chi-siamo.html">Chi Siamo</a></li>
             </ul>
-        </nav>
-    </header>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-    <section id="home" class="hero">
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="hero-overlay"></div>
+            <div class="particles" id="particles"></div>
+        </div>
         <div class="hero-content">
-            <h1>Petacheo</h1>
-            <p class="subtitle">Il Petoi che incarna Achille, eroe dell'Iliade</p>
-            <a href="#progetto" class="btn">Scopri di più</a>
+            <div class="hero-badge">
+                <span>MAST Summer School 2k26</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">PETACHEO</span>
+                <span class="title-subtitle">L'Eroe di Bronzo</span>
+            </h1>
+            <p class="hero-description">
+                Quando la tecnologia incontra la leggenda, nasce un nuovo eroe.
+                <br>Un Petoi che cammina sulle orme del più grande guerriero dell'Iliade.
+            </p>
+            <div class="hero-buttons">
+                <a href="progetto.html" class="btn btn-primary">
+                    <span>Scopri il Progetto</span>
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="storia.html" class="btn btn-secondary">
+                    <span>La Leggenda di Achille</span>
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scorri per scoprire</span>
         </div>
     </section>
 
-    <section id="progetto" class="project">
+    <section class="intro-section">
         <div class="container">
-            <h2>Il Progetto</h2>
-            <div class="project-content">
-                <div class="project-text">
-                    <h3>Cos'è Petacheo?</h3>
-                    <p>Petacheo è un robot <strong>Petoi</strong> programmato per simulare i movimenti e i comportamenti di <strong>Achille</strong>, il leggendario eroe greco dell'Iliade di Omero.</p>
-                    
-                    <h3>Perché Achille?</h3>
-                    <p>Achille rappresenta la forza, il coraggio e la determinazione. Attraverso Petacheo, abbiamo cercato di portare nel mondo moderno un pezzo della mitologia greca, unendo tecnologia e letteratura classica.</p>
-                    
-                    <h3>Come funziona?</h3>
-                    <p>Il robot è programmato per eseguire movimenti che richiamano le gesta eroiche di Achille: dalla corsa veloce alle pose di battaglia, fino alla rappresentazione del famoso scontro con Ettore.</p>
+            <div class="intro-grid">
+                <div class="intro-card" data-aos="fade-up">
+                    <div class="intro-icon">⚔️</div>
+                    <h3>La Spada</h3>
+                    <p>La tecnologia moderna come arma per raccontare storie millenarie</p>
+                </div>
+                <div class="intro-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="intro-icon">🏛️</div>
+                    <h3>Il Tempio</h3>
+                    <p>Unire programmazione e letteratura classica in un unico progetto</p>
+                </div>
+                <div class="intro-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="intro-icon">🌟</div>
+                    <h3>Il Destino</h3>
+                    <p>Sei giovani, un'idea, un'estate per creare qualcosa di epico</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="team" class="team">
+    <section class="quote-section">
         <div class="container">
-            <h2>Il Team</h2>
-            <p class="team-intro">Siamo un gruppo di 6 ragazzi/e di 17 anni, partecipanti alla <strong>Summer School MAST 2k26</strong>.</p>
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="member-icon">👤</div>
-                    <h4>Membro 1</h4>
+            <div class="quote-content">
+                <div class="quote-decoration left">❝</div>
+                <blockquote>
+                    "Canta, o Dea, dell'ira di Achille Pelide, 
+                    funesta, che infiniti dolori inflisse agli Achei"
+                </blockquote>
+                <cite>— Omero, Iliade, Libro I</cite>
+                <div class="quote-decoration right">❞</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Il Progetto</span>
+                <h2>Technology Meets Mythology</h2>
+                <p class="section-subtitle">Un viaggio attraverso tempo e tecnologia</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card large">
+                    <div class="feature-image">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600" alt="Robot Petoi">
+                        <div class="feature-overlay"></div>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Il Robot Petoi</h3>
+                        <p>Petacheo è costruito su una piattaforma Petoi, un robot quadrupede programmabile che abbiamo trasformato nel più grande eroe greco. Ogni movimento, ogni gesto, è studiato per richiamare le gesta leggendarie di Achille.</p>
+                    </div>
                 </div>
-                <div class="team-member">
-                    <div class="member-icon">👤</div>
-                    <h4>Membro 2</h4>
+                <div class="feature-card">
+                    <div class="feature-icon">🎭</div>
+                    <h3>Movimenti Eroici</h3>
+                    <p>Dalla corsa veloce alle pose di battaglia, ogni azione è ispirata ai versi dell'Iliade</p>
                 </div>
-                <div class="team-member">
-                    <div class="member-icon">👤</div>
-                    <h4>Membro 3</h4>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Tecnologia Moderna</h3>
+                    <p>Codice e creatività uniti per dare vita alla leggenda</p>
                 </div>
-                <div class="team-member">
-                    <div class="member-icon">👤</div>
-                    <h4>Membro 4</h4>
-                </div>
-                <div class="team-member">
-                    <div class="member-icon">👤</div>
-                    <h4>Membro 5</h4>
-                </div>
-                <div class="team-member">
-                    <div class="member-icon">👤</div>
-                    <h4>Membro 6</h4>
+                <div class="feature-card">
+                    <div class="feature-icon">📜</div>
+                    <h3>Storia Antica</h3>
+                    <p>Riviviamo l'epopea troiana attraverso la robotica</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
+    <section class="timeline-section">
         <div class="container">
-            <p>&copy; 2026 Petacheo Team - MAST Summer School 2k26</p>
+            <div class="section-header">
+                <span class="section-badge">Il Viaggio</span>
+                <h2>Dall'Idea alla Realtà</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Giorno 1</span>
+                        <h3>L'Ispezione</h3>
+                        <p>L'idea nasce durante la Summer School MAST: unire la nostra passione per la tecnologia con la letteratura classica</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Giorno 2-3</span>
+                        <h3>La Progettazione</h3>
+                        <p>Studio dei movimenti di Achille e programmazione del robot Petoi per replicarli</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Giorno 4-5</span>
+                        <h3>La Forgia</h3>
+                        <p>Sviluppo del codice, test dei movimenti e perfezionamento delle coreografie eroiche</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Oggi</span>
+                        <h3>Il Trionfo</h3>
+                        <p>Presentazione di Petacheo al mondo: tecnologia e mito si fondono</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Pronto a Scoprire la Leggenda?</h2>
+                <p>Esplora il nostro progetto e immergiti nel mondo di Achille</p>
+                <div class="cta-buttons">
+                    <a href="galleria.html" class="btn btn-primary">Vedi la Galleria</a>
+                    <a href="chi-siamo.html" class="btn btn-secondary">Conosci il Team</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-bg">
+            <div class="greek-pattern"></div>
+        </div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">Ω</span>
+                        <span class="logo-text">PETACHEO</span>
+                    </div>
+                    <p>Un progetto della Summer School MAST 2k26</p>
+                    <div class="footer-quote">
+                        "Anche gli dei combattono per gli eroi"
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Esplora</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="storia.html">La Leggenda</a></li>
+                            <li><a href="progetto.html">Il Progetto</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Scopri</h4>
+                        <ul>
+                            <li><a href="galleria.html">Galleria</a></li>
+                            <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Info</h4>
+                        <ul>
+                            <li><a href="#">MAST Summer School</a></li>
+                            <li><a href="#">Petoi</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-divider">
+                    <span class="divider-icon">⚔️</span>
+                </div>
+                <p>&copy; 2026 Petacheo Team. Tutti i diritti riservati.</p>
+                <p class="footer-credits">Creato con passione durante la MAST Summer School 2k26</p>
+            </div>
         </div>
     </footer>
 
