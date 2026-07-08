@@ -164,6 +164,34 @@ body {
     transition: 0.3s;
 }
 
+.music-toggle {
+    background: transparent;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+}
+
+.music-toggle:hover {
+    background: rgba(212, 175, 55, 0.2);
+    transform: scale(1.1);
+}
+
+.music-icon {
+    font-size: 1.3rem;
+}
+
+.music-toggle.playing {
+    border-color: var(--gold-light);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
 .hero {
     min-height: 100vh;
     display: flex;
@@ -1313,6 +1341,15 @@ body {
 
     .hamburger {
         display: flex;
+    }
+
+    .music-toggle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .music-icon {
+        font-size: 1.1rem;
     }
 
     .hamburger.active span:nth-child(1) {

@@ -96,6 +96,42 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    const musicToggle = document.getElementById('musicToggle');
+    const backgroundMusic = document.getElementById('backgroundMusic');
+    
+    if (musicToggle && backgroundMusic) {
+        const musicIcon = musicToggle.querySelector('.music-icon');
+        const isPlaying = localStorage.getItem('musicPlaying') === 'true';
+        const musicTime = parseFloat(localStorage.getItem('musicTime')) || 0;
+        
+        if (isPlaying) {
+            backgroundMusic.currentTime = musicTime;
+            backgroundMusic.play().catch(e => {
+                console.log('Autoplay prevented:', e);
+            });
+            musicToggle.classList.add('playing');
+            musicIcon.textContent = '🔊';
+        }
+        
+        musicToggle.addEventListener('click', () => {
+            if (backgroundMusic.paused) {
+                backgroundMusic.play();
+                musicToggle.classList.add('playing');
+                musicIcon.textContent = '🔊';
+                localStorage.setItem('musicPlaying', 'true');
+            } else {
+                backgroundMusic.pause();
+                musicToggle.classList.remove('playing');
+                musicIcon.textContent = '🔇';
+                localStorage.setItem('musicPlaying', 'false');
+            }
+        });
+        
+        window.addEventListener('beforeunload', () => {
+            localStorage.setItem('musicTime', backgroundMusic.currentTime);
+        });
+    }
+
     const revealElements = document.querySelectorAll('.reveal');
     
     const revealOnScroll = () => {
