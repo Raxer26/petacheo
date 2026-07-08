@@ -6,6 +6,13 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.static(__dirname));
 
+app.get('/petoivideo.mp4', (req, res) => {
+    const videoPath = path.join(__dirname, 'petoivideo.mp4');
+    res.setHeader('Content-Type', 'video/mp4');
+    res.setHeader('Accept-Ranges', 'bytes');
+    res.sendFile(videoPath);
+});
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
