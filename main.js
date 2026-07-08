@@ -101,16 +101,36 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (musicToggle && backgroundMusic) {
         const musicIcon = musicToggle.querySelector('.music-icon');
-        const isPlaying = localStorage.getItem('musicPlaying') === 'true';
+        
+        let isPlaying = localStorage.getItem('musicPlaying');
+        if (isPlaying === null) {
+            isPlaying = 'true';
+            localStorage.setItem('musicPlaying', 'true');
+        } else {
+            isPlaying = isPlaying === 'true';
+        }
+        
         const musicTime = parseFloat(localStorage.getItem('musicTime')) || 0;
         
         if (isPlaying) {
             backgroundMusic.currentTime = musicTime;
-            backgroundMusic.play().catch(e => {
-                console.log('Autoplay prevented:', e);
-            });
             musicToggle.classList.add('playing');
             musicIcon.textContent = '🔊';
+            
+            const startMusic = () => {
+                backgroundMusic.play().then(() => {
+                    console.log('Music started');
+                }).catch(e => {
+                    console.log('Autoplay prevented, waiting for user interaction');
+                });
+                document.removeEventListener('click', startMusic);
+                document.removeEventListener('scroll', startMusic);
+                document.removeEventListener('keydown', startMusic);
+            };
+            
+            document.addEventListener('click', startMusic, { once: true });
+            document.addEventListener('scroll', startMusic, { once: true });
+            document.addEventListener('keydown', startMusic, { once: true });
         }
         
         musicToggle.addEventListener('click', () => {
