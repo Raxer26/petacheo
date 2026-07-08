@@ -24,6 +24,55 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const battagliaBtn = document.getElementById('battaglia-btn');
+    const battagliaModal = document.getElementById('battaglia-modal');
+    const battagliaClose = document.getElementById('battaglia-close');
+    const battagliaSlides = document.querySelectorAll('.battaglia-slide');
+    let currentSlide = 0;
+
+    if (battagliaBtn && battagliaModal) {
+        battagliaBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            battagliaModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            currentSlide = 0;
+            showSlide(0);
+        });
+
+        battagliaClose.addEventListener('click', () => {
+            battagliaModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        battagliaModal.addEventListener('click', (e) => {
+            if (e.target === battagliaModal) {
+                battagliaModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space' && battagliaModal.classList.contains('active')) {
+                e.preventDefault();
+                currentSlide = (currentSlide + 1) % battagliaSlides.length;
+                showSlide(currentSlide);
+            }
+            if (e.code === 'Escape' && battagliaModal.classList.contains('active')) {
+                battagliaModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        function showSlide(index) {
+            battagliaSlides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+    }
+
     const particlesContainer = document.getElementById('particles');
     
     if (particlesContainer) {
