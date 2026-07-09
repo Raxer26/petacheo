@@ -76,21 +76,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const particlesContainer = document.getElementById('particles');
     
     if (particlesContainer) {
-        const particleCount = 120;
+        const particleCount = 50;
         
         for (let i = 0; i < particleCount; i++) {
             const particle = document.createElement('div');
             particle.className = 'particle';
             particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 12 + 's';
-            particle.style.animationDuration = (Math.random() * 8 + 10) + 's';
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            particle.style.animationDuration = (Math.random() * 8 + 12) + 's';
             
-            const size = Math.random() * 12 + 5;
+            const size = Math.random() * 8 + 4;
             particle.style.width = size + 'px';
             particle.style.height = size + 'px';
-            
-            const opacity = Math.random() * 0.4 + 0.6;
-            particle.dataset.baseOpacity = opacity;
             
             particlesContainer.appendChild(particle);
         }
@@ -205,63 +202,6 @@ document.addEventListener('DOMContentLoaded', () => {
     previewCards.forEach((card, index) => {
         card.style.transitionDelay = (index * 0.15) + 's';
     });
-
-    // Cursor particles effect
-    const cursorParticles = [];
-    const particleCount = 20;
-    
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'cursor-particle';
-        document.body.appendChild(particle);
-        cursorParticles.push({
-            element: particle,
-            x: 0,
-            y: 0,
-            size: Math.random() * 10 + 5,
-            speedX: 0,
-            speedY: 0
-        });
-    }
-    
-    let mouseX = 0;
-    let mouseY = 0;
-    let isMouseMoving = false;
-    let mouseTimeout;
-    
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        isMouseMoving = true;
-        
-        clearTimeout(mouseTimeout);
-        mouseTimeout = setTimeout(() => {
-            isMouseMoving = false;
-        }, 100);
-    });
-    
-    function animateCursorParticles() {
-        cursorParticles.forEach((particle, index) => {
-            const delay = index * 0.05;
-            
-            if (isMouseMoving) {
-                particle.x += (mouseX - particle.x) * (0.1 - delay);
-                particle.y += (mouseY - particle.y) * (0.1 - delay);
-                particle.element.style.opacity = '0.6';
-            } else {
-                particle.element.style.opacity = '0';
-            }
-            
-            particle.element.style.left = particle.x + 'px';
-            particle.element.style.top = particle.y + 'px';
-            particle.element.style.width = particle.size + 'px';
-            particle.element.style.height = particle.size + 'px';
-        });
-        
-        requestAnimationFrame(animateCursorParticles);
-    }
-    
-    animateCursorParticles();
 });
 
 window.addEventListener('load', () => {
