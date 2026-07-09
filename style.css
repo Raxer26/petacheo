@@ -1171,22 +1171,18 @@ body {
     display: flex;
     gap: 2rem;
     margin-top: 2rem;
-    justify-content: center;
-    flex-wrap: wrap;
     align-items: stretch;
 }
 
 .incarnazione-item {
     display: flex;
     flex-direction: column;
-    align-items: center;
     flex: 1;
-    min-width: 280px;
-    max-width: 350px;
 }
 
 .incarnazione-item .incarnazione-card {
-    height: 250px;
+    flex-grow: 1;
+    height: auto;
 }
 
 .incarnazione-card {
@@ -1197,7 +1193,19 @@ body {
     transition: all 0.4s ease;
     width: 100%;
     text-align: center;
-    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.incarnazione-image {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 3rem;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .incarnazione-card:hover {
@@ -1238,18 +1246,27 @@ body {
 
 .cyberworld-screenshot {
     width: 100%;
+    max-width: 300px;
     height: auto;
     border-radius: 10px;
-    margin-top: 1rem;
     border: 1px solid rgba(212, 175, 55, 0.2);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .iot-image {
     width: 100%;
-    height: 220px;
+    max-width: 300px;
+    height: auto;
     border-radius: 10px;
-    margin-top: 1rem;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.ai-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
     border: 1px solid rgba(212, 175, 55, 0.2);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
