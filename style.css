@@ -1241,6 +1241,80 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+.storia-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.storia-intro h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.storia-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.storia-card {
+    background: linear-gradient(145deg, rgba(20, 20, 30, 0.8), rgba(10, 10, 15, 0.9));
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: all 0.4s ease;
+}
+
+.storia-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
+}
+
+.storia-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.storia-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.storia-card p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.conclusione-box {
+    background: linear-gradient(145deg, rgba(139, 0, 0, 0.1), rgba(20, 20, 30, 0.8));
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: 15px;
+    padding: 2.5rem;
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.conclusione-box h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+}
+
+.conclusione-box p {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-style: italic;
+}
+
 .progetto-extra-images {
     display: flex;
     justify-content: center;
