@@ -1241,6 +1241,22 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+.progetto-extra-images {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+}
+
+.progetto-extra-img {
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
 .incarnazione-card:hover {
     transform: translateY(-10px);
     border-color: var(--gold);
