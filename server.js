@@ -1,9 +1,41 @@
 const express = require('express');
 const path = require('path');
+const { Pool } = require('pg');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(express.json());
 app.use(express.static(__dirname));
+
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
+});
+
+pool.query(`
+    CREATE TABLE IF NOT EXISTS page_visits (
+        id SERIAL PRIMARY KEY,
+        page_name VARCHAR(50) NOT NULL,
+        visit_count INTEGER DEFAULT 0,
+        last_visit TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )
+`).catch(err => console.log('Table creation error:', err));
+
+pool.query(`
+    INSERT INTO page_visits (page_name, visit_count)
+    SELECT * FROM (VALUES 
+        ('home', 0),
+        ('team', 0),
+        ('galleria', 0),
+        ('progetto', 0),
+        ('storia', 0),
+        ('funzionalita', 0),
+        ('battaglia', 0)
+    ) AS v(page, count)
+    WHERE NOT EXISTS (SELECT 1 FROM page_visits WHERE page_name = v.page)
+`).catch(err => console.log('Insert error:', err));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
@@ -23,6 +55,43 @@ app.get('/storia', (req, res) => {
 
 app.get('/galleria', (req, res) => {
     res.sendFile(path.join(__dirname, 'galleria.html'));
+});
+
+app.get('/funzionalita', (req, res) => {
+    res.sendFile(path.join(__dirname, 'funzionalita.html'));
+});
+
+app.post('/api/visit/:page', async (req, res) => {
+    const { page } = req.params;
+    try {
+        await pool.query(
+            `INSERT INTO page_visits (page_name, visit_count) 
+             VALUES ($1, 1) 
+             ON CONFLICT (page_name) 
+             DO UPDATE SET 
+                visit_count = page_visits.visit_count + 1,
+                last_visit = CURRENT_TIMESTAMP`,
+            [page]
+        );
+        res.json({ success: true });
+    } catch (err) {
+        console.error('Visit error:', err);
+        res.status(500).json({ error: 'Database error' });
+    }
+});
+
+app.get('/api/stats', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM page_visits ORDER BY visit_count DESC');
+        const totalResult = await pool.query('SELECT SUM(visit_count) as total FROM page_visits');
+        res.json({
+            pages: result.rows,
+            total: totalResult.rows[0].total || 0
+        });
+    } catch (err) {
+        console.error('Stats error:', err);
+        res.status(500).json({ error: 'Database error' });
+    }
 });
 
 app.listen(PORT, () => {
