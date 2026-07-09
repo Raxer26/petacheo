@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     setTimeout(() => {
                         window.location.href = href;
-                    }, 600);
+                    }, 300);
                 } else {
                     window.location.href = href;
                 }
