@@ -76,8 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (battagliaModal) {
         epicBattleAudio = new Audio('epicbattle.mp3');
         epicBattleAudio.volume = 0.7;
+        epicBattleAudio.loop = true;
         battitomorteAudio = new Audio('battitomorte.mp3');
         battitomorteAudio.volume = 0.7;
+        battitomorteAudio.loop = true;
     }
 
     if (battagliaBtn && battagliaModal) {
