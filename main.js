@@ -76,16 +76,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const particlesContainer = document.getElementById('particles');
     
     if (particlesContainer) {
-        const particleCount = 100;
+        const particleCount = 120;
         
         for (let i = 0; i < particleCount; i++) {
             const particle = document.createElement('div');
             particle.className = 'particle';
             particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 8 + 's';
-            particle.style.animationDuration = (Math.random() * 6 + 8) + 's';
+            particle.style.animationDelay = Math.random() * 12 + 's';
+            particle.style.animationDuration = (Math.random() * 8 + 10) + 's';
             
-            const size = Math.random() * 6 + 3;
+            const size = Math.random() * 12 + 5;
             particle.style.width = size + 'px';
             particle.style.height = size + 'px';
             
