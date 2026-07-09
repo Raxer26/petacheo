@@ -155,14 +155,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (i === index) {
                     slide.classList.add('active');
                     
-                    // Play epic battle music for torri slides (0 and 2)
-                    if ((index === 0 || index === 2) && epicBattleAudio) {
+                    // Play epic battle music for first 3 slides (0, 1, 2)
+                    if (index < 3 && epicBattleAudio) {
                         epicBattleAudio.currentTime = 0;
                         epicBattleAudio.play().catch(e => {
                             console.log('Audio play prevented:', e);
                         });
                     } else if (epicBattleAudio && !epicBattleAudio.paused) {
-                        // Stop music when changing to non-torri slides
+                        // Stop music when changing to slides 3+
                         epicBattleAudio.pause();
                         epicBattleAudio.currentTime = 0;
                     }
