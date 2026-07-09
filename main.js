@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const loader = document.getElementById('loader');
+    const pageTransition = document.getElementById('pageTransition');
     
     if (loader) {
         setTimeout(() => {
@@ -7,19 +8,58 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1500);
     }
 
+    // Scroll indicator click
+    const scrollIndicator = document.getElementById('scrollIndicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', () => {
+            const previewSection = document.querySelector('.preview-section');
+            if (previewSection) {
+                previewSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+
+    // Page transition for navigation links
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            
+            if (href && href.endsWith('.html') && href !== currentPage) {
+                e.preventDefault();
+                
+                if (pageTransition) {
+                    pageTransition.classList.add('active');
+                    
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 600);
+                } else {
+                    window.location.href = href;
+                }
+            }
+        });
+    });
+
+    // Fade in transition when page loads
+    if (pageTransition) {
+        pageTransition.classList.remove('active');
+    }
+
     const hamburger = document.getElementById('hamburger');
-    const navLinks = document.querySelector('.nav-links');
+    const navLinksContainer = document.querySelector('.nav-links');
     
-    if (hamburger && navLinks) {
+    if (hamburger && navLinksContainer) {
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
+            navLinksContainer.classList.toggle('active');
         });
 
-        navLinks.querySelectorAll('a').forEach(link => {
+        navLinksContainer.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
+                navLinksContainer.classList.remove('active');
             });
         });
     }
