@@ -15,21 +15,13 @@ const pool = new Pool({
 });
 
 pool.query(`
-    CREATE TABLE IF NOT EXISTS page_visits (
+    CREATE TABLE IF NOT EXISTS total_visits (
         id SERIAL PRIMARY KEY,
-        page_name VARCHAR(50) UNIQUE NOT NULL,
-        visit_count INTEGER DEFAULT 0,
-        last_visit TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        count INTEGER DEFAULT 0
     )
 `).catch(err => console.log('Table creation error:', err));
 
-const pages = ['home', 'team', 'galleria', 'progetto', 'storia', 'funzionalita', 'battaglia'];
-pages.forEach(page => {
-    pool.query(
-        `INSERT INTO page_visits (page_name, visit_count) VALUES ($1, 0) ON CONFLICT DO NOTHING`,
-        [page]
-    ).catch(err => console.log('Insert error:', err));
-});
+pool.query(`INSERT INTO total_visits (count) SELECT 0 WHERE NOT EXISTS (SELECT 1 FROM total_visits)`).catch(err => console.log('Insert error:', err));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
@@ -55,35 +47,23 @@ app.get('/funzionalita', (req, res) => {
     res.sendFile(path.join(__dirname, 'funzionalita.html'));
 });
 
-app.post('/api/visit/:page', async (req, res) => {
-    const { page } = req.params;
+app.post('/api/visit', async (req, res) => {
     try {
-        await pool.query(
-            `INSERT INTO page_visits (page_name, visit_count) 
-             VALUES ($1, 1) 
-             ON CONFLICT (page_name) 
-             DO UPDATE SET 
-                visit_count = page_visits.visit_count + 1,
-                last_visit = CURRENT_TIMESTAMP`,
-            [page]
-        );
-        res.json({ success: true });
+        await pool.query(`UPDATE total_visits SET count = count + 1`);
+        const result = await pool.query(`SELECT count FROM total_visits`);
+        res.json({ count: result.rows[0].count });
     } catch (err) {
         console.error('Visit error:', err);
         res.status(500).json({ error: 'Database error' });
     }
 });
 
-app.get('/api/stats', async (req, res) => {
+app.get('/api/visits', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM page_visits ORDER BY visit_count DESC');
-        const totalResult = await pool.query('SELECT SUM(visit_count) as total FROM page_visits');
-        res.json({
-            pages: result.rows,
-            total: totalResult.rows[0].total || 0
-        });
+        const result = await pool.query(`SELECT count FROM total_visits`);
+        res.json({ count: result.rows[0]?.count || 0 });
     } catch (err) {
-        console.error('Stats error:', err);
+        console.error('Visits error:', err);
         res.status(500).json({ error: 'Database error' });
     }
 });

@@ -8,10 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1500);
     }
 
-    const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
-    const pageName = currentPage === 'index' ? 'home' : currentPage;
-    fetch(`/api/visit/${pageName}`, { method: 'POST' }).catch(err => console.log('Visit tracking failed'));
-
     // Scroll indicator click
     const scrollIndicator = document.getElementById('scrollIndicator');
     if (scrollIndicator) {

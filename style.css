@@ -1612,6 +1612,33 @@ body {
     padding: 2rem;
 }
 
+.total-visits-box {
+    margin-top: 3rem;
+    padding: 2rem 3rem;
+    background: linear-gradient(145deg, rgba(139, 0, 0, 0.1), rgba(20, 20, 30, 0.8));
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.total-visits-box h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+}
+
+.visit-count {
+    font-family: 'Cinzel', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--text);
+}
+
 .progetto-extra-images {
     display: flex;
     justify-content: center;

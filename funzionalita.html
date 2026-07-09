@@ -67,16 +67,9 @@
                 <button class="camera-btn" id="camera-btn">Attiva Telecamera</button>
             </div>
 
-            <div class="stats-section reveal">
-                <h2>Statistiche del Sito</h2>
-                <div class="greek-divider"></div>
-                <div class="stats-grid" id="stats-grid">
-                    <div class="stats-loading">Caricamento statistiche...</div>
-                </div>
-                <div class="total-visits reveal">
-                    <span class="total-number" id="total-visits">0</span>
-                    <span class="total-label">Visite Totali</span>
-                </div>
+            <div class="total-visits-box reveal">
+                <h3>Visite Totali</h3>
+                <span class="visit-count" id="visit-count">0</span>
             </div>
         </div>
     </section>
@@ -142,30 +135,18 @@
             }
         });
 
-        async function loadStats() {
+        async function updateVisits() {
             try {
-                const response = await fetch('/api/stats');
+                await fetch('/api/visit', { method: 'POST' });
+                const response = await fetch('/api/visits');
                 const data = await response.json();
-                
-                const statsGrid = document.getElementById('stats-grid');
-                const totalPages = document.getElementById('total-visits');
-                
-                statsGrid.innerHTML = data.pages.map(page => `
-                    <div class="stat-card">
-                        <div class="stat-page">${page.page_name.charAt(0).toUpperCase() + page.page_name.slice(1)}</div>
-                        <div class="stat-count">${page.visit_count}</div>
-                        <div class="stat-label">visite</div>
-                    </div>
-                `).join('');
-                
-                totalPages.textContent = data.total;
+                document.getElementById('visit-count').textContent = data.count;
             } catch (err) {
-                console.error('Errore caricamento statistiche:', err);
-                document.getElementById('stats-grid').innerHTML = '<div class="stats-error">Errore nel caricamento delle statistiche</div>';
+                console.error('Errore caricamento visite:', err);
             }
         }
         
-        loadStats();
+        updateVisits();
     </script>
 </body>
 </html>
