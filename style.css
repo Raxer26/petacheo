@@ -1209,11 +1209,13 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
+    align-items: center;
 }
 
 .incarnazione-item .incarnazione-card {
     flex-grow: 1;
     height: auto;
+    width: 100%;
 }
 
 .incarnazione-card {
