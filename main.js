@@ -84,6 +84,12 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = 'hidden';
             currentSlide = 0;
             showSlide(0);
+            
+            // Pause background music when opening modal
+            const bgMusic = document.getElementById('backgroundMusic');
+            if (bgMusic && !bgMusic.paused) {
+                bgMusic.pause();
+            }
         });
 
         battagliaClose.addEventListener('click', () => {
@@ -92,6 +98,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (epicBattleAudio) {
                 epicBattleAudio.pause();
                 epicBattleAudio.currentTime = 0;
+            }
+            
+            // Resume background music when closing modal
+            const bgMusic = document.getElementById('backgroundMusic');
+            const musicState = localStorage.getItem('musicPlaying');
+            if (bgMusic && musicState === 'true') {
+                bgMusic.play().catch(e => console.log('Resume music failed'));
             }
         });
 
@@ -102,6 +115,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (epicBattleAudio) {
                     epicBattleAudio.pause();
                     epicBattleAudio.currentTime = 0;
+                }
+                
+                // Resume background music when closing modal
+                const bgMusic = document.getElementById('backgroundMusic');
+                const musicState = localStorage.getItem('musicPlaying');
+                if (bgMusic && musicState === 'true') {
+                    bgMusic.play().catch(e => console.log('Resume music failed'));
                 }
             }
         });
@@ -118,6 +138,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (epicBattleAudio) {
                     epicBattleAudio.pause();
                     epicBattleAudio.currentTime = 0;
+                }
+                
+                // Resume background music when closing modal
+                const bgMusic = document.getElementById('backgroundMusic');
+                const musicState = localStorage.getItem('musicPlaying');
+                if (bgMusic && musicState === 'true') {
+                    bgMusic.play().catch(e => console.log('Resume music failed'));
                 }
             }
         });
