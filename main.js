@@ -72,9 +72,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Create epic battle audio
     let epicBattleAudio = null;
+    let battitomorteAudio = null;
     if (battagliaModal) {
         epicBattleAudio = new Audio('epicbattle.mp3');
         epicBattleAudio.volume = 0.7;
+        battitomorteAudio = new Audio('battitomorte.mp3');
+        battitomorteAudio.volume = 0.7;
     }
 
     if (battagliaBtn && battagliaModal) {
@@ -99,6 +102,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 epicBattleAudio.pause();
                 epicBattleAudio.currentTime = 0;
             }
+            if (battitomorteAudio) {
+                battitomorteAudio.pause();
+                battitomorteAudio.currentTime = 0;
+            }
             
             // Resume background music when closing modal
             const bgMusic = document.getElementById('backgroundMusic');
@@ -115,6 +122,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (epicBattleAudio) {
                     epicBattleAudio.pause();
                     epicBattleAudio.currentTime = 0;
+                }
+                if (battitomorteAudio) {
+                    battitomorteAudio.pause();
+                    battitomorteAudio.currentTime = 0;
                 }
                 
                 // Resume background music when closing modal
@@ -139,6 +150,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     epicBattleAudio.pause();
                     epicBattleAudio.currentTime = 0;
                 }
+                if (battitomorteAudio) {
+                    battitomorteAudio.pause();
+                    battitomorteAudio.currentTime = 0;
+                }
                 
                 // Resume background music when closing modal
                 const bgMusic = document.getElementById('backgroundMusic');
@@ -155,16 +170,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (i === index) {
                     slide.classList.add('active');
                     
+                    // Stop all battle music first
+                    if (epicBattleAudio) {
+                        epicBattleAudio.pause();
+                        epicBattleAudio.currentTime = 0;
+                    }
+                    if (battitomorteAudio) {
+                        battitomorteAudio.pause();
+                        battitomorteAudio.currentTime = 0;
+                    }
+                    
                     // Play epic battle music for first 3 slides (0, 1, 2)
                     if (index < 3 && epicBattleAudio) {
                         epicBattleAudio.currentTime = 0;
                         epicBattleAudio.play().catch(e => {
                             console.log('Audio play prevented:', e);
                         });
-                    } else if (epicBattleAudio && !epicBattleAudio.paused) {
-                        // Stop music when changing to slides 3+
-                        epicBattleAudio.pause();
-                        epicBattleAudio.currentTime = 0;
+                    }
+                    // Play battitomorte music for slide 3 (file.jpg)
+                    else if (index === 3 && battitomorteAudio) {
+                        battitomorteAudio.currentTime = 0;
+                        battitomorteAudio.play().catch(e => {
+                            console.log('Audio play prevented:', e);
+                        });
                     }
                 }
             });
