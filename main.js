@@ -69,6 +69,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const battagliaClose = document.getElementById('battaglia-close');
     const battagliaSlides = document.querySelectorAll('.battaglia-slide');
     let currentSlide = 0;
+    
+    // Create epic battle audio
+    let epicBattleAudio = null;
+    if (battagliaModal) {
+        epicBattleAudio = new Audio('epicbattle.mp3');
+        epicBattleAudio.volume = 0.7;
+    }
 
     if (battagliaBtn && battagliaModal) {
         battagliaBtn.addEventListener('click', (e) => {
@@ -82,12 +89,20 @@ document.addEventListener('DOMContentLoaded', () => {
         battagliaClose.addEventListener('click', () => {
             battagliaModal.classList.remove('active');
             document.body.style.overflow = '';
+            if (epicBattleAudio) {
+                epicBattleAudio.pause();
+                epicBattleAudio.currentTime = 0;
+            }
         });
 
         battagliaModal.addEventListener('click', (e) => {
             if (e.target === battagliaModal) {
                 battagliaModal.classList.remove('active');
                 document.body.style.overflow = '';
+                if (epicBattleAudio) {
+                    epicBattleAudio.pause();
+                    epicBattleAudio.currentTime = 0;
+                }
             }
         });
 
@@ -100,6 +115,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.code === 'Escape' && battagliaModal.classList.contains('active')) {
                 battagliaModal.classList.remove('active');
                 document.body.style.overflow = '';
+                if (epicBattleAudio) {
+                    epicBattleAudio.pause();
+                    epicBattleAudio.currentTime = 0;
+                }
             }
         });
 
@@ -108,6 +127,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 slide.classList.remove('active');
                 if (i === index) {
                     slide.classList.add('active');
+                    
+                    // Play epic battle music for torri slides (0 and 2)
+                    if ((index === 0 || index === 2) && epicBattleAudio) {
+                        epicBattleAudio.currentTime = 0;
+                        epicBattleAudio.play().catch(e => {
+                            console.log('Audio play prevented:', e);
+                        });
+                    } else if (epicBattleAudio && !epicBattleAudio.paused) {
+                        // Stop music when changing to non-torri slides
+                        epicBattleAudio.pause();
+                        epicBattleAudio.currentTime = 0;
+                    }
                 }
             });
         }
