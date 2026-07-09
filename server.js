@@ -17,25 +17,19 @@ const pool = new Pool({
 pool.query(`
     CREATE TABLE IF NOT EXISTS page_visits (
         id SERIAL PRIMARY KEY,
-        page_name VARCHAR(50) NOT NULL,
+        page_name VARCHAR(50) UNIQUE NOT NULL,
         visit_count INTEGER DEFAULT 0,
         last_visit TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
 `).catch(err => console.log('Table creation error:', err));
 
-pool.query(`
-    INSERT INTO page_visits (page_name, visit_count)
-    SELECT * FROM (VALUES 
-        ('home', 0),
-        ('team', 0),
-        ('galleria', 0),
-        ('progetto', 0),
-        ('storia', 0),
-        ('funzionalita', 0),
-        ('battaglia', 0)
-    ) AS v(page, count)
-    WHERE NOT EXISTS (SELECT 1 FROM page_visits WHERE page_name = v.page)
-`).catch(err => console.log('Insert error:', err));
+const pages = ['home', 'team', 'galleria', 'progetto', 'storia', 'funzionalita', 'battaglia'];
+pages.forEach(page => {
+    pool.query(
+        `INSERT INTO page_visits (page_name, visit_count) VALUES ($1, 0) ON CONFLICT DO NOTHING`,
+        [page]
+    ).catch(err => console.log('Insert error:', err));
+});
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
