@@ -1639,6 +1639,31 @@ body {
     color: var(--text);
 }
 
+.qr-section {
+    padding: 4rem 0;
+    background: var(--dark);
+    text-align: center;
+}
+
+.qr-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.qr-image {
+    max-width: 250px;
+    height: auto;
+    border-radius: 15px;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.qr-image:hover {
+    transform: scale(1.05);
+}
+
 .progetto-extra-images {
     display: flex;
     justify-content: center;
